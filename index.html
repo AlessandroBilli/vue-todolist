@@ -18,35 +18,16 @@
 
             <h3> Vue To Do List</h3>
 
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <div class="container">
-                    <a class="navbar-brand" href="#">To-Do List</a>
-                    <div class="collapse navbar-collapse" id="navbarNav">
-                        <ul class="navbar-nav ml-auto">
-                            <li class="nav-item">
-                                <div class="input-group">
-                                    <input class="form-control" type="text" placeholder="Aggiungi cosa fare">
-                                    <div class="input-group-append">
-                                        <button class="btn btn-outline-secondary" type="button">
-                                            <i class="fa-solid fa-plus"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
+            <input v-model="newTodo" type="text" class="form-control mb-2" placeholder="Aggiungi nuovo todo">
+            <button @click="addTodo" class="btn btn-primary">Aggiungi</button>
 
-            <ul class="list-group ">
-                <li class="list-group-item d-flex">An item</li>
-                <li class="list-group-item d-flex  ">A second item</li>
-                <li class="list-group-item d-flex">A third item</li>
-                <li class="list-group-item d-flex">A fourth item</li>
-                <li class="list-group-item d-flex">And a fifth one</li>
+            <ul class="list-group">
+                <li v-for="(todo, index) in todos" :key="index" class="list-group-item">
+                    <span v-if="todo.done" style="text-decoration: line-through">{{ todo.text }}</span>
+                    <span v-else>{{ todo.text }}</span>
+                    <div role="button" @click="removeTodo(index)" class=" fa-solid fa-xmark"></div>
+                </li>
             </ul>
-
-
 
         </div>
 
