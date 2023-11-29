@@ -21,6 +21,11 @@ createApp({
         this.todos.push({ text: this.newTodo, done: false });
         this.newTodo = '';
       }
+    },
+
+    markTodo: function(index) { 
+        this.todos[index].done = true;
+
     }
   }
 }).mount("#app");

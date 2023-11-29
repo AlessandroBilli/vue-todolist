@@ -26,6 +26,7 @@
                     <span v-if="todo.done" style="text-decoration: line-through">{{ todo.text }}</span>
                     <span v-else>{{ todo.text }}</span>
                     <div role="button" @click="removeTodo(index)" class=" fa-solid fa-xmark"></div>
+                    <div role="button" @click="markTodo(index)" class=" fa-solid fa-check"></div>
                 </li>
             </ul>
 
